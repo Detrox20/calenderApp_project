@@ -284,7 +284,6 @@ $schedueleModalSave.onclick = () => {
     fkTable: +document.getElementById('select-schedule').value
     // fkTable: document.getElementById('select-schedule').selectedIndex
   };
-
   schedules = [...schedules, newSchedule];
   document.querySelector('.modal-container').classList.add('hidden');
   document.getElementById('schedule-name').value = '';
@@ -420,7 +419,7 @@ function schedulesRender() {
           }
         }
         // console.log('_schedules.indexOf(schedule)', _schedules.indexOf(schedule));
-        _schedules.slice(_schedules.indexOf(schedule), 1);
+        _schedules.splice(_schedules.indexOf(schedule), 1);
       });
     }
     // console.log(saturdaySchedules);
@@ -455,13 +454,15 @@ function schedulesRender() {
   // render
   function render(schedule, dep) {
     if (!document.getElementById(`${schedule.from}`)) return;
+    console.log(schedule);
     const $inner = document.getElementById(`${schedule.from}`);
-    $inner.querySelector('.schedule-inner-container').innerHTML += `<div id="${schedule.id}" class="schedule-list" role="button">${
+    $inner.querySelector('.schedule-inner-container').innerHTML += `<div id="${schedule.id}" class="schedule-list" role="button" style="backgrond-color: ${console.log(tablesClass.find(table => table.order === schedule.fkTable))}">${
       schedule.title}</div>`;
     document.getElementById(`${schedule.id}`).style.width = `${95 * (schedule.length + 1)}%`;
     document.getElementById(`${schedule.id}`).style.transform = `translateY(${dep * 110}%)`;
+    document.getElementById(`${schedule.id}`).style.backgroundColor = `${tablesClass.find(table => table.order === schedule.fkTable).color}`;
   }
-  console.log(_schedules);
+  // console.log(_schedules);
   schedulesOrder();
 }
 

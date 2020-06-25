@@ -33,7 +33,7 @@ const render = () => {
 //   let ColorRandom = arrColor[colorIndex];
 //   let _arrColor = arrColor.filter(item => item !== ColorRandom);
 //   arrColor = _arrColor;
- 
+
 //   if (arrColor.length === 0) {
 //     alert('캘린더 추가는 10개까지 가능합니다');
 //   }
