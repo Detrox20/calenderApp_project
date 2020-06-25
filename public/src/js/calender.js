@@ -6,9 +6,6 @@ const removeToken = () => localStorage.removeItem('userTk');
 
 const $btnLogout = document.querySelector('.btn-logout');
 
-const removeToken = () => localStorage.removeItem('userTk');
-const pageMove = url => location.replace(url);
-
 function Calendar() {
   this.container = document.querySelector('.container');
   this.container.classList.add('wlhs-calendar');
